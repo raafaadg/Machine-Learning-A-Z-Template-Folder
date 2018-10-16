@@ -22,7 +22,7 @@ X_test = sc.transform(X_test)
 
 # Fitting Random Forest Classification to the Training set
 from sklearn.ensemble import RandomForestClassifier
-classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
+classifier = RandomForestClassifier(n_estimators = 40, criterion = 'entropy', random_state = 0)
 classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
@@ -67,3 +67,7 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
+
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, classification_report, confusion_matrix
+print(precision_score(y_test, y_pred, average="macro"))
+print(recall_score(y_test, y_pred, average="macro"))
